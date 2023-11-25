@@ -26,19 +26,20 @@ public class DynamicControl {
       WebElement checkboxFormEle = driver.findElement(CHECKBOX_FORM_SEL);
       WebElement inputFormEle = driver.findElement(INPUT_FORM_SEL);
 
-      //Checkbox form interaction
+//      //Checkbox form interaction
       WebElement checkboxInputEle = checkboxFormEle.findElement(CHECKBOX_INPUT_ELE_SEL);
       WebElement removebuttonEle = checkboxFormEle.findElement(BTN_ELE_SEL);
       System.out.println("BEFORE | is element selected: " + checkboxInputEle.isSelected());
       checkboxInputEle.click();
       System.out.println("AFTER | is element selected: " + checkboxInputEle.isSelected());
 
-      removebuttonEle.click();
+      removebuttonEle.click(); //remove -> addd
       wait.until(ExpectedConditions.invisibilityOfElementLocated(CHECKBOX_INPUT_ELE_SEL));
 
-//      removebuttonEle.click();
-//      wait.until(ExpectedConditions.invisibilityOfElementLocated(CHECKBOX_INPUT_ELE_SEL));
-//      System.out.println("AFTER | is element selected: " + checkboxInputEle.isSelected());
+      removebuttonEle.click(); // add -> remove
+      wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKBOX_INPUT_ELE_SEL));
+      checkboxInputEle = checkboxFormEle.findElement(CHECKBOX_INPUT_ELE_SEL); // find lai element vi da xuat hien moi
+      System.out.println("AFTER ADD| is element selected: " + checkboxInputEle.isSelected());
 
 
       //input form interaction
