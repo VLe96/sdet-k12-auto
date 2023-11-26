@@ -31,7 +31,8 @@ public class JSExcutor {
                       "'border: 4px solid red;');", driver.findElement(By.tagName("h3")));
       javascriptExecutor.executeScript("document.querySelector('a').removeAttribute('target');"
               , driver.findElement(By.tagName("a"))); // run out error zero size
-      driver.findElement(By.tagName("a")).click();
+      driver.findElement(By.cssSelector("div#page-footer a")).click();
+      Thread.sleep(3000);
     }catch(Exception ignore){
       ignore.printStackTrace();
     }finally{
