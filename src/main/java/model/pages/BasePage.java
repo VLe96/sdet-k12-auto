@@ -1,12 +1,15 @@
 package model.pages;
 
-import model.components.FooterComponent;
+import model.components.Component;
+import model.components.Global.footer.FooterComponent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class BasePage {
+public class BasePage extends Component {
     private final WebDriver driver;
 
     public BasePage(WebDriver driver) {
+        super(driver, driver.findElement(By.tagName("html")));
         this.driver = driver;
     }
 
@@ -15,6 +18,6 @@ public class BasePage {
     // MENTHOD
 
     public FooterComponent footerComponent(){
-        return new FooterComponent(this.driver);
+        return findComponent(FooterComponent.class);
     }
 }
